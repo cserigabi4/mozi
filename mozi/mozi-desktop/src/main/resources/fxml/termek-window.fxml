@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="613.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.TermekWindowController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Lista">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#FilmekFxml" text="Filmek" />
+                        <MenuItem mnemonicParsing="false" onAction="#onExit" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Hozzáadás">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onAddNewFilm" text="Film hozzáadás" />
+                        <MenuItem mnemonicParsing="false" onAction="#onAddNewTerem" text="Terem hozzáadás" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="30.0" prefWidth="955.0" text="Termek lista">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </VBox.margin>
+                </Label>
+                <TableView fx:id="termekTabla" prefHeight="536.0" prefWidth="949.0">
+                    <columns>
+                        <TableColumn fx:id="idOszlop" prefWidth="145.0" text="Id" />
+                        <TableColumn fx:id="sorokSzamaOszlop" prefWidth="247.0" text="Sorok száma" />
+                        <TableColumn fx:id="oszlopokSzamaOszlop" minWidth="0.0" prefWidth="256.0" text="Oszlopok száma" />
+                        <TableColumn fx:id="esemenyOszlop" prefWidth="300.0" text="Esemény" />
+                    </columns>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+    <left>
+        <VBox prefHeight="371.0" prefWidth="107.0" BorderPane.alignment="CENTER">
+            <children>
+                <StackPane fx:id="menuPane" prefHeight="584.0" prefWidth="107.0" />
+            </children></VBox>
+    </left>
+
+</BorderPane>

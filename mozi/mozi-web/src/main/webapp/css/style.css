@@ -1,0 +1,16 @@
+table, th, td {
+    border: 1px solid black;
+}
+.szek{
+    margin: 2px;
+    max-width:40px; !important;
+    max-height:30px; !important;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.szek:hover{
+    background-color: deepskyblue;
+}
