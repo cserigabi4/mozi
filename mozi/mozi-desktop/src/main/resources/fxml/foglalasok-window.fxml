@@ -12,20 +12,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="613.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.FoglalasokWindowController">
+<BorderPane prefHeight="613.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.FoglalasokWindowController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Lista">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#FilmekFxml" text="Filmek" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false"  onAction="#onExit" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Hozzáadás">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Film hozzáadás" />
-                        <MenuItem mnemonicParsing="false" text="Terem hozzáadás" />
+                        <MenuItem mnemonicParsing="false" onAction="#onAddNewFilm" text="Film hozzáadás" />
+                        <MenuItem mnemonicParsing="false" onAction="#onAddNewTerem" text="Terem hozzáadás" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -52,10 +52,10 @@
                         <TableColumn fx:id="foglalasOszlop" minWidth="9.0" prefWidth="94.0" text="Foglalás Id" />
                         <TableColumn fx:id="filmOszlop" minWidth="9.0" prefWidth="171.0" text="Film" />
                         <TableColumn fx:id="foglalasNevOszlop" minWidth="9.0" prefWidth="125.0" text="Felhasználó Id" />
-                        <TableColumn fx:id="vetitesOszlop" minWidth="0.0" prefWidth="245.0" text="Vetites" />
-                        <TableColumn fx:id="helyekOszlop" minWidth="0.0" prefWidth="180.0" text="Helyek" />
-                        <TableColumn fx:id="arOszlop" maxWidth="2000.0" prefWidth="62.0" text="Ár" />
-                        <TableColumn fx:id="esemenyOszlop" prefWidth="208.0" text="Esemény" />
+                        <TableColumn fx:id="vetitesOszlop" minWidth="0.0" prefWidth="303.0" text="Vetites" />
+                        <TableColumn fx:id="helyekOszlop" minWidth="0.0" prefWidth="183.0" text="Helyek" />
+                        <TableColumn fx:id="arOszlop" maxWidth="2000.0" prefWidth="86.0" text="Ár" />
+                        <TableColumn fx:id="esemenyOszlop" prefWidth="123.0" text="Esemény" />
                     </columns>
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

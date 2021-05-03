@@ -1,16 +1,12 @@
 package hu.alkfejl.controller;
 
 import hu.alkfejl.App;
-import hu.alkfejl.dao.FilmDAO;
-import hu.alkfejl.dao.FilmDAOImpl;
 import hu.alkfejl.dao.TeremDAO;
 import hu.alkfejl.dao.TeremDAOImpl;
-import hu.alkfejl.model.Film;
 import hu.alkfejl.model.Terem;
 import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
 
 public class AddEditTeremController {
 

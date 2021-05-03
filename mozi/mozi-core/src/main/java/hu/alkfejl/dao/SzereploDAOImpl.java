@@ -3,10 +3,7 @@ package hu.alkfejl.dao;
 import hu.alkfejl.config.MoziConfiguration;
 import hu.alkfejl.model.Film;
 import hu.alkfejl.model.Szereplo;
-import hu.alkfejl.model.Vetites;
-
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

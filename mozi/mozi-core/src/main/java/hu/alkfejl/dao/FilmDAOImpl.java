@@ -2,11 +2,11 @@ package hu.alkfejl.dao;
 
 import hu.alkfejl.config.MoziConfiguration;
 import hu.alkfejl.model.Film;
+import hu.alkfejl.model.Foglalas;
 import hu.alkfejl.model.Szereplo;
 import hu.alkfejl.model.Vetites;
 import javafx.collections.FXCollections;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +14,12 @@ import java.util.Properties;
 
 public class FilmDAOImpl implements FilmDAO {
     private static final String SELECT_ALL_FILMEK = "SELECT * FROM filmek";
-/*
-    private static final String SELECT_FILM = "SELECT cim FROM filmek where id=?";
-*/
     private static final String INSERT_FILM = "INSERT INTO filmek (cim,hossz,korhatar,rendezo,leiras,boritoUrl,elozetesUrl) values (?,?,?,?,?,?,?)";
     private static final String UPDATE_FILM = "UPDATE filmek SET cim=?, hossz=?, korhatar=?, rendezo=?,  leiras=?, boritoUrl=?, elozetesUrl=? WHERE id=? ";
     private static final String DELETE_FILM = "DELETE FROM filmek where id=?";
     private static final String SELECT_FILM_BY_ID = "SELECT * FROM filmek where id=?";
     private SzereploDAO szereploDAO = new SzereploDAOImpl();
     private VetitesDAO vetitesDAO = new VetitesDAOImpl();
-    Properties props = new Properties();
     private String connectionUrl;
     private static FilmDAO instance;
 
@@ -62,6 +58,10 @@ public class FilmDAOImpl implements FilmDAO {
                 film.setLeiras(rs.getString("leiras"));
                 film.setBoritoUrl(rs.getString("boritoUrl"));
                 film.setElozetesUrl(rs.getString("elozetesUrl"));
+                List<Vetites> vetites=vetitesDAO.osszesFilmId(film.getId());
+                film.setVetitesek(FXCollections.observableList(vetites));
+                List<Szereplo> szereplok=szereploDAO.osszesByFilmId(film);
+                film.setSzereplok(FXCollections.observableList(szereplok));
                 result.add(film);
             }
 
@@ -145,10 +145,6 @@ public class FilmDAOImpl implements FilmDAO {
             stmt.setString(5, film.getLeiras());
             stmt.setString(6, film.getBoritoUrl());
             stmt.setString(7, film.getElozetesUrl());
-            for(Vetites vet : film.getVetitesek()){
-                vetitesDAO.mentes(vet,film.getId());
-            }
-
             int affectedRows = stmt.executeUpdate();
             if(affectedRows == 0){
                 return null;
@@ -158,6 +154,9 @@ public class FilmDAOImpl implements FilmDAO {
                 if (genKeys.next()) {
                     film.setId(genKeys.getInt(1));
                 }
+            }
+            for(Vetites vet : film.getVetitesek()){
+                vetitesDAO.mentes(vet,film.getId());
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -171,7 +170,12 @@ public class FilmDAOImpl implements FilmDAO {
         try(Connection c = DriverManager.getConnection(connectionUrl);
             PreparedStatement stmt= c.prepareStatement(DELETE_FILM);
         ){
-
+            for(Vetites vet : film.getVetitesek()){
+                vetitesDAO.torles(vet);
+            }
+            for(Szereplo szereplo : film.getSzereplok()){
+                szereploDAO.torles(szereplo);
+            }
             stmt.setInt(1,film.getId());
             stmt.executeUpdate();
 

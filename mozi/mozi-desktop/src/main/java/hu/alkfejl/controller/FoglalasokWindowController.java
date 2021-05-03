@@ -2,18 +2,16 @@ package hu.alkfejl.controller;
 
 import hu.alkfejl.App;
 import hu.alkfejl.dao.*;
-import hu.alkfejl.model.Film;
-import hu.alkfejl.model.Foglalas;
-import hu.alkfejl.model.Helyek;
-import hu.alkfejl.model.Vetites;
+import hu.alkfejl.model.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -53,17 +51,13 @@ public class FoglalasokWindowController implements Initializable {
 
         esemenyOszlop.setCellFactory(param -> new TableCell<>() {
             private final Button deleteBtn = new Button("Törlés");
-            private final Button editBtn = new Button("Szerkesztés");
-
             {
                 deleteBtn.setOnAction(event -> {
                     Foglalas f =getTableRow().getItem();
                     dao.torlesDesktop(f.getId());
                     refreshTable();
                 });
-                editBtn.setOnAction(event -> {
-                    refreshTable();
-                });
+
             }
             @Override
             protected void updateItem(Void item, boolean empty) {
@@ -72,7 +66,7 @@ public class FoglalasokWindowController implements Initializable {
                     setGraphic(null);
                 } else {
                     HBox container = new HBox();
-                    container.getChildren().addAll(editBtn, deleteBtn);
+                    container.getChildren().addAll(deleteBtn);
                     container.setSpacing(10.0);
                     setGraphic(container);
                 }
@@ -111,6 +105,24 @@ public class FoglalasokWindowController implements Initializable {
     }
     public void TermekFxml(){
         App.loadFXML("/fxml/termek-window.fxml");
+    }
+
+    @FXML
+    public void onExit(){
+        Platform.exit();
+    }
+
+    @FXML
+    public void onAddNewFilm(){
+        FXMLLoader fxmlLoader = App.loadFXML("/fxml/add_edit_film.fxml");
+        AddEditFilmController controller= fxmlLoader.getController();
+        controller.setFilm(new Film());
+    }
+    @FXML
+    public void onAddNewTerem(){
+        FXMLLoader fxmlLoader = App.loadFXML("/fxml/add_edit_terem.fxml");
+        AddEditTeremController controller= fxmlLoader.getController();
+        controller.setTerem(new Terem());
     }
 
 }

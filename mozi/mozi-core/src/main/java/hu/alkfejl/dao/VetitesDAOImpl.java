@@ -2,13 +2,10 @@ package hu.alkfejl.dao;
 
 import hu.alkfejl.config.MoziConfiguration;
 import hu.alkfejl.model.Film;
-import hu.alkfejl.model.Terem;
 import hu.alkfejl.model.Vetites;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +16,6 @@ public class VetitesDAOImpl implements VetitesDAO{
     private static final String INSERT_VETITES = "INSERT INTO vetitesek (terem_id,datum,ido,ar,film_id) values (?,?,?,?,?)";
     private static final String UPDATE_VETITES = "UPDATE vetitesek SET terem_id=?, datum=?,ido=?, ar=? where id=?";
     private static final String DELETE_VETITES = "DELETE FROM vetitesek where id=?";
-    private static final String DELETE_ALL_VETITES = "DELETE FROM vetitesek where film_id=?";
     private String connectionUrl;
 
     public VetitesDAOImpl() {
@@ -47,8 +43,6 @@ public class VetitesDAOImpl implements VetitesDAO{
                 vetites.setTerem(rs.getInt("terem_id"));
                 Date date= Date.valueOf(rs.getString("datum"));
                 vetites.setDatum(date == null ? LocalDate.now() : date.toLocalDate());
-              /*  Date time= Date.valueOf(rs.getString("ido"));
-                vetites.setDatum(time == null ? LocalDate.now() :time.toLocalDate());*/
                 vetites.setIdo(rs.getInt("ido"));
                 vetites.setAr(rs.getInt("ar"));
                 result.add(vetites);
@@ -81,8 +75,6 @@ public class VetitesDAOImpl implements VetitesDAO{
                 vetites.setTerem(rs.getInt("terem_id"));
                 Date date= Date.valueOf(rs.getString("datum"));
                 vetites.setDatum(date == null ? LocalDate.now() : date.toLocalDate());
-              /*  Date time= Date.valueOf(rs.getString("ido"));
-                vetites.setDatum(time == null ? LocalDate.now() :time.toLocalDate());*/
                 vetites.setIdo(rs.getInt("ido"));
                 vetites.setAr(rs.getInt("ar"));
 
@@ -110,8 +102,6 @@ public class VetitesDAOImpl implements VetitesDAO{
                 vetites.setTerem(rs.getInt("terem_id"));
                 Date date= Date.valueOf(rs.getString("datum"));
                 vetites.setDatum(date == null ? LocalDate.now() : date.toLocalDate());
-              /*  Date time= Date.valueOf(rs.getString("ido"));
-                vetites.setDatum(time == null ? LocalDate.now() :time.toLocalDate());*/
                 vetites.setIdo(rs.getInt("ido"));
                 vetites.setAr(rs.getInt("ar"));
                 LocalDateTime date2 = LocalDateTime.now();
@@ -195,8 +185,4 @@ public class VetitesDAOImpl implements VetitesDAO{
         }
     }
 
-    @Override
-    public void deleteAll(int filmId) {
-        osszesFilmId(filmId).forEach(this::torles);
-    }
 }

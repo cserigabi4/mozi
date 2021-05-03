@@ -2,10 +2,7 @@ package hu.alkfejl.controller;
 
 import hu.alkfejl.dao.*;
 import hu.alkfejl.model.Film;
-import hu.alkfejl.model.Szereplo;
 import hu.alkfejl.model.Vetites;
-import javafx.collections.ObservableList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,12 +25,8 @@ public class FilmLeirasController extends HttpServlet {
             int filmId = Integer.parseInt(filmIdStr);
             List<Vetites> vetitesek = vetitesdao.osszesAktualisFilmId(filmId);
             Film film = dao.FilmById(filmId);
-
-         // film.setSzereplok((ObservableList<Szereplo>) szereplo);
-           // System.out.println(szereplo);
             req.setAttribute("film", film);
             req.setAttribute("vetites", vetitesek);
-           // req.setAttribute("szereplo", szereplo);
         }
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="110.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.AddEditSzereploController">
+<GridPane prefHeight="110.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.AddEditSzereploController">
     <rowConstraints>
         <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" />
         <RowConstraints minHeight="10.0" percentHeight="50.0" prefHeight="30.0" valignment="CENTER" />

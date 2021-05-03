@@ -1,11 +1,7 @@
 package hu.alkfejl.dao;
 
 import hu.alkfejl.config.MoziConfiguration;
-import hu.alkfejl.model.Film;
-import hu.alkfejl.model.Foglalas;
 import hu.alkfejl.model.Helyek;
-import hu.alkfejl.model.Vetites;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

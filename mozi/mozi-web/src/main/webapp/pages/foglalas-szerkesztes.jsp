@@ -5,12 +5,12 @@
 
 <t:basic-layout-menu title="Foglalas Lista">
     <div class="container">
-        <div class="row shadow-lg rounded m-3">
-            <c:if test="${requestScope.hiba != null}">
-            <div class="alert alert-danger" role="alert">
+        <c:if test="${requestScope.hiba != null}">
+            <div class="alert alert-danger mt-2" role="alert">
                     ${requestScope.hiba}
             </div>
-            </c:if>
+        </c:if>
+        <div class="row shadow-lg rounded m-3">
             <table class="text-center">
                 <tr>
                     <th>Film</th>

@@ -2,9 +2,6 @@ package hu.alkfejl.controller;
 
 import hu.alkfejl.dao.*;
 import hu.alkfejl.model.*;
-import javafx.beans.property.SimpleListProperty;
-import javafx.collections.ObservableList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

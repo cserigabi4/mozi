@@ -12,7 +12,7 @@
     <div class="container w-25">
         <div class="text-center rounded shadow-lg m-3">
             <h1 class="mb-3">Bejelentkezés</h1>
-            <form action="../BejelentkezesController" method="post">
+            <form action="${pageContext.request.contextPath}/BejelentkezesController" method="post">
                 <div class="form-group">
                     <label for="felhasznalonev">Felhasználónév</label>
                     <input required name="felhasznalonev" type="text" class="form-control"

@@ -2,10 +2,8 @@ package hu.alkfejl.controller;
 
 import hu.alkfejl.model.Film;
 import hu.alkfejl.model.Szereplo;
-import hu.alkfejl.model.Vetites;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 

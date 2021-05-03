@@ -4,7 +4,6 @@ import hu.alkfejl.dao.FoglalasDao;
 import hu.alkfejl.dao.FoglalasDaoImpl;
 import hu.alkfejl.model.Felhasznalo;
 import hu.alkfejl.model.Foglalas;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

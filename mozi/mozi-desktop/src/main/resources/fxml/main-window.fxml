@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="613.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.MainWindowController">
+<BorderPane prefHeight="613.0" prefWidth="1056.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.alkfejl.controller.MainWindowController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>

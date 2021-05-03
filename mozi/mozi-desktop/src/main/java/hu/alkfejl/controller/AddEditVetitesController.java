@@ -3,7 +3,6 @@ package hu.alkfejl.controller;
 import hu.alkfejl.dao.TeremDAO;
 import hu.alkfejl.dao.TeremDAOImpl;
 import hu.alkfejl.model.Film;
-import hu.alkfejl.model.Terem;
 import hu.alkfejl.model.Vetites;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -20,7 +20,6 @@ public class BejelentkezesController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-      //  System.out.println("itt");
         FelhasznaloDao felhasznaloDAO = FelhasznaloDaoImpl.getInstance();
         String felhasznalonev = request.getParameter("felhasznalonev");
         String jelszo = request.getParameter("jelszo");
@@ -28,7 +27,7 @@ public class BejelentkezesController extends HttpServlet {
         Felhasznalo felhasznalo = felhasznaloDAO.bejelentekes(felhasznalonev, jelszo);
         if( felhasznalo == null){
            request.setAttribute("hiba", "Hibás felhasználónév vagy jelszó!");
-            request.getRequestDispatcher("pages/hiba.jsp").forward(request, response);
+            request.getRequestDispatcher("pages/bejelentkezes.jsp").forward(request, response);
 
         }
         request.getSession().setAttribute("felhasznalo", felhasznalo);

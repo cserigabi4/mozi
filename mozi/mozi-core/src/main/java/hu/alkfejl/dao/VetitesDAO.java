@@ -20,8 +20,6 @@ public interface VetitesDAO {
 
     void torles(Vetites vetites);
 
-    void deleteAll(int filmId);
-
     List<Vetites> osszesAktualisFilmId(int filmId);
 
 }
