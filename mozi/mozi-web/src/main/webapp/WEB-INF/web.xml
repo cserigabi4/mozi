@@ -1,3 +1,17 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <context-param>
+    <param-name>bejelentkezes-filter-exclusion</param-name>
+    <param-value>
+      /index.jsp,
+      /pages/bejelentkezes.jsp,
+      /BejelentkezesController,
+      /RegisztralasController,
+      /pages/film.jsp,
+      /FilmLeirasController,
+      /css/style.css
+    </param-value>
+  </context-param>
+
 </web-app>
